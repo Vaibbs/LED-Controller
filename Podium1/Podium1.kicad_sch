@@ -1,0 +1,28 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "11b82c14-e483-4320-a0c4-778f1b436d25")
+	(paper "A4")
+	(lib_symbols)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+	(embedded_files
+		(file
+			(name "no_title_block.kicad_wks")
+			(type worksheet)
+			(data |KLUv/WD1A2UJAPJOLBlg1wMPitQFlMnbEWmLAhOFVOJDyoZg0rICgUC4u+b9tRnWHPrXimRkmGhR
+				8luW5UFjAL5aB7KMfG3loOPP+peXz5CRn9QyZyqN/LOr5sdNbe/qlvmJHz9+n3+d46Zmfaadsv92
+				qexDD/UHudLHJ6W80xMhYfEY+oZiXelEyAJyb/R+1j8AQCBU1vd9BeIU5/Zp08pUOXb707v2QxwQ
+				QiO+yNXS630NQCBcCVOayVBpCDMgcGQE0dUBziQvelSYNQU5sVW5ioj6HM1spnBgIKLdeSoPelbY
+				m2Pxg3hzcQdjez9lYm4R6x1/4fHZdutzpEFEoPmqTygFAHULXACHC3AdHeaHFAsjyM8uPSLZgqxc
+				TGSgk7gxXaBAW2tuC7faGxOPuLvCRlY4AQ==|
+			)
+			(checksum "DB777337D500B7A92461AC6DEBBE8D20")
+		)
+	)
+)
