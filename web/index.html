@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Remote Dashboard</title>
+    <title>Remote Dashboard</title>
 
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,11 +35,20 @@
     <section class="content">
 
       <!-- Brightness Slider -->
+<!-- Brightness Slider -->
+
 <div class="brigtness-container" id="brightnessContainer">
+
+  <!-- CENTER ICON -->
+
+  <!-- FILL -->
   <div class="brigtness-fill" id="brightnessFill">
-      <span class="brigtness-percent" id="brightnessPercent">65%</span>
+    <span class="brigtness-percent" id="brightnessPercent">65%</span>
   </div>
+
 </div>
+<span class="brigtness-icon" style="margin-bottom: 5%; font-size: 25px;">&#9728;</span>
+
 <!-- Toast Message -->
 <div id="toast" class="toast">Brightness: 65%</div>
 
@@ -57,24 +66,36 @@
                 <p>MODE</p>
             </div>
             <!-- Toast -->
-        <div id="toast" class="toast">Mode</div>
             <!-- Auto Button -->
             <button class="card button">
                 <span class="material-icons-round">hdr_auto</span>
                 <p>AUTO</p>
             </button>
 
-            <!-- Timer -->
-            <div class="timer-card">
-                <div>
-                    <h4>TIMER</h4>
-                    <p class="time">00:45 <span>min</span></p>
-                </div>
-                <span class="material-icons-round timer-icon">timer</span>
-            </div>
-
+            
+            
+                
+            
+        
         </div>
-
+        <!-- Timer -->
+            
+        <div class="timer-card">
+          <div class="timer-left">
+            <h4>TIMER</h4>
+            <p class="time">
+              <span id="timerScreen">00:00:00</span>
+            </p>
+          </div>
+        
+          <div class="timer-buttons">
+            <button id="setBtn">SET</button>
+            <button id="playPauseBtn">▶</button>
+          </div>
+        </div>
+        
+        <!-- Toast -->
+        <div id="toast" class="toast">Timer Finished</div>
         <!-- Bottom Buttons -->
         <div class="bottom-buttons">
             <button class="power-btn">
@@ -89,6 +110,7 @@
     </section>
 
 </main>
+<div id="toast" class="toast">Mode</div>
 
 
 

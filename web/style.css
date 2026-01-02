@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #f3f4f6;
+  background: #fff2d7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,23 +48,27 @@ body {
   text-align: center;
 }
 
-/* brigtness */
+/* brightness */
 .brigtness-container {
-  width: 80px;
-  height: 240px;
+  width: 240px;          /* was height */
+  height: 80px;          /* was width */
   background: #e5e7eb;
   border-radius: 30px;
-  margin: auto;
+  margin-top: 20%;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-start; /* fill from left */
   padding: 8px;
   cursor: pointer;
 }
 
 .brigtness-fill {
   background: #0ea5e9;
-  height: 65%;
-  width: 100%;
+  width: 65%;            /* was height */
+  height: 100%;
   border-radius: 20px;
   position: relative;
 }
@@ -77,6 +81,7 @@ body {
   color: #fff;
   font-weight: bold;
 }
+
 /* Toast Message */
 .toast {
   position: fixed;
@@ -177,20 +182,7 @@ input:checked + .slider:before {
 }
 
 /* Timer */
-.timer-card {
-  grid-column: span 2;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.time {
-  font-size: 28px;
-  font-weight: bold;
-}
 
 /* Bottom Buttons */
 .bottom-buttons {
@@ -244,4 +236,100 @@ button:active{
   width: 85%;
   height: 16px;
   border-radius: 30px;
+}
+
+
+/* TIMER CARD */
+.timer-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+/* LEFT SECTION */
+.timer-left h4 {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.time {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111827;
+}
+
+/* BUTTON CONTAINER */
+.timer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* COMMON BUTTON STYLE */
+.timer-buttons button {
+  width: 60px;
+  padding: 6px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* SET BUTTON */
+#setBtn {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+#setBtn:hover {
+  background: #d1d5db;
+}
+
+/* PLAY / PAUSE BUTTON */
+#playPauseBtn {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+#playPauseBtn:hover {
+  background: #0284c7;
+}
+
+/* BUTTON PRESS EFFECT */
+.timer-buttons button:active {
+  transform: scale(0.95);
+}
+
+/* TOAST MESSAGE */
+.toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+/* SHOW TOAST */
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
