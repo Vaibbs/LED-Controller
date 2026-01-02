@@ -1,242 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Smart Remote</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Remote Dashboard</title>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<head>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-</head>
-<style>
-.btn-class-name {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  /* background: #ccc; Example background */
-  border: none;
-  border-radius: 12px;
-  width: 60px;       /* adjust as needed */
-  height: 60px;      /* adjust as needed */
-  cursor: pointer;
-  position: relative;
-}
-
-.btn-class-name .front {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.btn-class-name .front img {
-  width: 60%;      /* adjust percentage for size */
-  height: auto;
-  object-fit: contain;
-}
-</style>
-<div class="container-back"></div>
-<div class="popup " id="popup">
-  <div class="popup-content animate__animated animate__backInUp">
-    <h2>Enter Time</h2>
-    <label>Start Time:</label><br>
-    <input type="time" id="startTime"><br>
-    <label>End Time:</label><br>
-    <input type="time" id="endTime"><br>
-
-    <button class="save-btn" id="saveTime">Save</button>
-    <button class="close-btn" id="closePopup">Close</button>
-  </div>
-</div>
-
-<!-- Toast Notification -->
-<div class="toast" id="toast">
-  <div class="toast-content" id="toastContent">
-    This is a toast message.
-  </div>
-  <div class="toast-icon">
-    ⚡
-  </div>
-</div>
-
 <body>
 
-  <div class="container animate__animated animate__lightSpeedInLeft">
-    <!-- LEFT PANEL -->
-    <div class="left-cont ">
-      <div class="remote">
+<main class="dashboard">
 
-        <!-- Row 1 -->
-        <div class="row">
-          <button class="btn-class-name gray"><span class="back"></span><span class="front">B+</span></button>
-          <button class="btn-class-name gray"><span class="back"></span><span class="front">B-</span></button>
-          <button class="btn-class-name blue"><span class="back"></span><span class="front">ON</span></button>
-          <button class="btn-class-name red"><span class="back"></span><span class="front">OFF</span></button>
+    <!-- Top Status Bar -->
+    <header class="status-bar">
+        <div class="status-left">
+            <span class="material-icons-round">wifi</span>
+            <span>CONNECTED</span>
         </div>
 
-        <!-- Row 2 -->
-        <div class="row">
-          <button class="btn-class-name red"><span class="back"></span><span class="front">RED</span></button>
-          <button class="btn-class-name green"><span class="back"></span><span class="front">GREEN</span></button>
-          <button class="btn-class-name blue"><span class="back"></span><span class="front">BLUE</span></button>
-          <button class="btn-class-name white"><span class="back"></span><span class="front">WHITE</span></button>
+        <div class="status-right">
+            <span>85%</span>
+            <div class="battery-container">
+              <div class="percentage-bar"></div>
+            </div>
         </div>
+    </header>
 
-        <!-- Row 3 -->
-        <div class="row">
-          <button class="btn-class-name orange"><span class="back"></span><span class="front">ORANGE</span></button>
-          <button class="btn-class-name yellow"><span class="back"></span><span class="front">YELLOW</span></button>
-          <button class="btn-class-name cyan"><span class="back"></span><span class="front">CYAN</span></button>
-          <button class="btn-class-name purple"><span class="back"></span><span class="front">PURPLE</span></button>
-        </div>
+    <!-- Main Content -->
+    <section class="content">
 
-        <!-- Row 4 -->
-        <div class="row">
-          <!-- <button class="btn-class-name gray" id="openPopup"><span class="back"></span><span class="front">Sleep</span></button> -->
-          <button class="btn-class-name gray"><span class="back"></span><span class="front">Auto</span></button>
-          <button class="btn-class-name gray"><span class="back"></span><span class="front">Strobe</span></button>
-          <button class="btn-class-name gray"><span class="back"></span><span class="front">Fade+</span></button>
-          <button class="btn-class-name gray"><span class="back"></span><span class="front">Fade-</span></button>
-        </div>
-      </div>
-      <p id="buttonMessage" style="text-align:center; font-weight:bold; margin-top:10px;"></p>
-
-    </div>
-
-    <!-- RIGHT PANEL -->
-    <div class="right-cont">
-      <div class="top-right-cont">
-        <label for="colorPicker">🎨 Choose Color:</label>
-        <input type="color" id="colorPicker" value="#007bff">
-      </div>
-      <!-- From Uiverse.io by Cobp --> 
-<div class="container-items">
-  <button
-    class="item-color"
-    style="--color: #e11d48"
-    aria-color="#e11d48"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #f472b6"
-    aria-color="#f472b6"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #fb923c"
-    aria-color="#fb923c"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #facc15"
-    aria-color="#facc15"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #84cc16"
-    aria-color="#84cc16"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #10b981"
-    aria-color="#10b981"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #0ea5e9"
-    aria-color="#0ea5e9"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #3b82f6"
-    aria-color="#3b82f6"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #8b5cf6"
-    aria-color="#8b5cf6"
-  ></button>
-  <button
-    class="item-color"
-    style="--color: #a78bfa"
-    aria-color="#a78bfa"
-  ></button>
-</div>
-
-      <div class="display-screen">
-        <p>Your Chosen Color</p>
-      </div>
-
-    </div>
+      <!-- Brightness Slider -->
+<div class="brigtness-container" id="brightnessContainer">
+  <div class="brigtness-fill" id="brightnessFill">
+      <span class="brigtness-percent" id="brightnessPercent">65%</span>
   </div>
-  <script src="script.js"></script>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Timer
-      function updateTime() {
-        const now = new Date();
-        const hrs = String(now.getHours()).padStart(2, '0');
-        const mins = String(now.getMinutes()).padStart(2, '0');
-        const secs = String(now.getSeconds()).padStart(2, '0');
-        const timeEl = document.getElementById('time');
-        if (timeEl) {
-          timeEl.textContent = `${hrs}:${mins}:${secs}`;
-        }
-      }
-      setInterval(updateTime, 1000);
-      updateTime();
-  
-      // Color picker
-      const picker = document.getElementById("colorPicker");
-      const display = document.querySelector(".display-screen");
-  
-      if (picker && display) {
-        picker.addEventListener("input", (e) => {
-          display.style.backgroundColor = e.target.value;
-          Sync.Color = hexToRgbArray(e.target.value);
-          Sync.Strobe = false;
-          sendSyncData();
-        });
-      }
-    });
-    
-    function hexToRgbArray(hex) {
-      const bigint = parseInt(hex.replace("#", ""), 16);
-      const r = (bigint >> 16) & 255;
-      const g = (bigint >> 8) & 255;
-      const b = bigint & 255;
-      return [r, g, b];
-    }
-    // Convert hex color to RGB
-    function hexToRgb(hex) {
-      const bigint = parseInt(hex.replace("#", ""), 16);
-      const r = (bigint >> 16) & 255;
-      const g = (bigint >> 8) & 255;
-      const b = bigint & 255;
-      return `${r}, ${g}, ${b}`;
-    }
-  
-    // Handle color selection
-    const colorButtons = document.querySelectorAll(".item-color");
-    const displayScreen = document.querySelector(".display-screen");
-  
-    colorButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const color = btn.getAttribute("aria-color");
-        const rgb = hexToRgb(color);
-        Sync.Color = hexToRgbArray(color);
-        Sync.Strobe = false;
-        sendSyncData();
-        displayScreen.style.backgroundColor = `rgb(${rgb})`;
-      });
-    });
-  </script>
-  
+</div>
+<!-- Toast Message -->
+<div id="toast" class="toast">Brightness: 65%</div>
+
+
+
+        <!-- Controls -->
+        <div class="controls">
+
+            <!-- Mode Switch -->
+            <div class="card">
+                <label class="switch">
+                  <input type="checkbox" id="modeToggle">
+                  <span class="slider"></span>
+                </label>
+                <p>MODE</p>
+            </div>
+            <!-- Toast -->
+        <div id="toast" class="toast">Mode</div>
+            <!-- Auto Button -->
+            <button class="card button">
+                <span class="material-icons-round">hdr_auto</span>
+                <p>AUTO</p>
+            </button>
+
+            <!-- Timer -->
+            <div class="timer-card">
+                <div>
+                    <h4>TIMER</h4>
+                    <p class="time">00:45 <span>min</span></p>
+                </div>
+                <span class="material-icons-round timer-icon">timer</span>
+            </div>
+
+        </div>
+
+        <!-- Bottom Buttons -->
+        <div class="bottom-buttons">
+            <button class="power-btn">
+                <span class="material-icons-round">power_settings_new</span>
+            </button>
+
+            <button class="add-btn">
+                <span class="material-icons-round">add</span>
+            </button>
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<script src="script.js"></script>
 </body>
 </html>
